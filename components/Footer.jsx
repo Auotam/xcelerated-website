@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { navItems, site } from './siteData';
+import { navItems } from './siteData';
 import SocialIcons from './SocialIcons';
 
 export default function Footer() {
@@ -20,7 +20,9 @@ export default function Footer() {
           <h4>Navigate</h4>
           <div className="footer-links">
             {navItems.map((item) => (
-              <Link href={item.href} key={item.href || item.label}>{item.label}</Link>
+              <Link href={item.href} key={item.href || item.label}>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -40,17 +42,33 @@ export default function Footer() {
             <span>Bay Area, California</span>
             <a href="mailto:info@xcelerated.org">info@xcelerated.org</a>
             <a href="tel:+15103864816">510-386-4816</a>
-            
-            <span>Mon–Fri 12–9pm</span>
+            <span>Mon–Fri 12am–9pm</span>
             <span>Sat–Sun 8am–12pm</span>
           </div>
         </div>
       </div>
+
       <div className="container footer-bottom">
         <span>© 2026 XCELERATED. All rights reserved.</span>
+
+       <span
+  className="footer-legal"
+  style={{ fontSize: 12, fontWeight: 400, display: 'inline-flex', alignItems: 'center', gap: 10, opacity: 0.9 }}
+>
+  <Link href="/terms" style={{ fontWeight: 400, textDecoration: 'none' }}>Terms & Conditions</Link>
+
+  <span aria-hidden="true" style={{ opacity: 0.6 }}>
+    {' '}|{' '}
+  </span>
+
+  <Link href="/privacy" style={{ fontWeight: 400, textDecoration: 'none' }}>Privacy Policy</Link>
+</span>
+
         <span>
           Design and Developed by{' '}
-          <a href="https://auotam.com" target="_blank" rel="noreferrer" className="auotam-link">AUOTAM</a>
+          <a href="https://auotam.com" target="_blank" rel="noreferrer" className="auotam-link">
+            AUOTAM
+          </a>
         </span>
       </div>
     </footer>
